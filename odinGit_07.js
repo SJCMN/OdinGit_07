@@ -16,15 +16,16 @@ let roundResult;
 let gameMessage;
 
 // prompt player to choose(type) 'Rock' || 'Paper' || 'Scissors'
-function getPlayerSelection () {
+function getPlayerSelection(){
 playerSelection = prompt('Type: Rock, Paper, or Scissors to play');
+
 console.log('You choose ' + playerSelection + ' !');
 }
 
 // computer plays randomly returns 'Rock','Paper', or 'Scissors'
 const compArray = ['Rock', 'Paper', 'Scissors'];
 
-function computerPlay() {
+function computerPlay(){
     let computerChoice = Math.floor(Math.random() * compArray.length);
     computerSelection = compArray[computerChoice];
     console.log('Computer chooses ' + computerSelection + ' !')
@@ -53,25 +54,9 @@ function roundOne(){
 
 // game score keeping
 
-function addPlayerScore(){
-  if (roundOneResult === 'Tie Game!'){
-    playerScore +=1;
-    console.log(playerScore);
-  }
-}
-
-function addComputerScore(){
-  if (roundOneResult === 'Try Again!'){
-    computerScore +=1;
-    console.log(computerScore);
-  }
-}
-
 function addGameRound(){
-  if (roundOneResult === ''){
     gameRound += 1;
-    console.log(gameRound);
-  }
+    console.log('///////// Round ' + gameRound + ' ! ///////');
 }
 
 function getGameScore(){
@@ -108,10 +93,11 @@ function resetScore(){
   gameRound = 0;
 }
 
-// plays best of 3 or best of 5 rounds 
+// first player to score 5 wins game 
 // Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
 
 function game(){
+  addGameRound();
   roundOne();
   gameComment();
   console.log(roundOneResult);
@@ -120,13 +106,15 @@ function game(){
 }
 
 function trackGameScore(){
-  if (playerScore || computerScore === 3 ){
+  if (playerScore > 4 || computerScore > 4){
     console.log('Game Over!');
     resetScore();
   }
+  else if (playerScore < 5 && computerScore < 5){
+    game();
+  }
 }
 
-game();
 
   // anounce round result
   // anounce game progress
