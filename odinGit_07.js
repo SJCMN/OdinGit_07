@@ -2,26 +2,25 @@
 // Rock Papaer Scissors Game //
 ///////////////////////////////
 
-// declare player selection
+// type 'game()' into console to play! //
+
 let playerSelection; 
 let computerSelection; 
 
-// declare score keepers
 let playerScore = 0;
 let computerScore = 0;
 let gameScore = 0; 
 let gameRound = 0;
+
 let roundOneResult;
 let roundResult;
 let gameMessage;
 
-// prompt player to choose(type) 'Rock' || 'Paper' || 'Scissors'
 function getPlayerSelection(){
 playerSelection = prompt('Type: Rock, Paper, or Scissors to play');
 console.log('You choose ' + playerSelection + ' !');
 }
 
-// computer plays randomly returns 'Rock','Paper', or 'Scissors'
 const compArray = ['Rock', 'Paper', 'Scissors'];
 
 function computerPlay(){
@@ -29,9 +28,6 @@ function computerPlay(){
     computerSelection = compArray[computerChoice];
     console.log('Computer chooses ' + computerSelection + ' !')
   }
-
-// round one play takes two paramaters (player selection, computer selection)
-// return 'Player One You Win!' || 'Player One You Loose' + 'rock beats scissors' || 'paper beats rock' || 'scissors beats paper'
 
 function roundOne(){
   getPlayerSelection();
@@ -53,8 +49,6 @@ function roundOne(){
     }
   }
 
-// game score keeping
-
 function addGameRound(){
     gameRound += 1;
     console.log('///////// Round ' + gameRound + ' ! ///////');
@@ -72,7 +66,6 @@ function getGameScore(){
   }
   console.log(gameScore);
 }
-
 
 function gameComment(){
   if (roundOneResult === 'Tie Game!'){
@@ -94,9 +87,6 @@ function resetScore(){
   gameRound = 0;
 }
 
-// first player to score 5 wins game 
-// Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
-
 function game(){
   addGameRound();
   roundOne();
@@ -115,33 +105,3 @@ function trackGameScore(){
     game();
   }
 }
-
-
-  // anounce round result
-  // anounce game progress
-  // announce game result
-  // play new game
-
-
-
-
-//eval code 
-/*
-
-function generateMessage(winningChoice) {
-  let message = "";
-  switch (winningChoice) {
-    case "rock":
-      message = "Rock smashes scissors.";
-      break;
-    case "paper":
-      message = "Paper covers rock.";
-      break;
-    case "scissors":
-      message = "Scissors cuts papper.";
-  }
-  return message;
-}
-
-//eval code
-*/
