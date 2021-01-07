@@ -18,7 +18,6 @@ let gameMessage;
 // prompt player to choose(type) 'Rock' || 'Paper' || 'Scissors'
 function getPlayerSelection(){
 playerSelection = prompt('Type: Rock, Paper, or Scissors to play');
-
 console.log('You choose ' + playerSelection + ' !');
 }
 
@@ -37,13 +36,15 @@ function computerPlay(){
 function roundOne(){
   getPlayerSelection();
   computerPlay();
+  playerSelection = playerSelection.toUpperCase();
+  computerSelection = computerSelection.toUpperCase();
   if (playerSelection === computerSelection){
   roundOneResult = 'Tie Game!';
   }
   else if (
-    (playerSelection === 'Rock' && computerSelection === 'Scissors') || 
-    (playerSelection === 'Paper' && computerSelection === 'Rock') || 
-    (playerSelection === 'Scissors' && computerSelection === 'Paper')
+    (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') || 
+    (playerSelection === 'PAPER' && computerSelection === 'ROCK') || 
+    (playerSelection === 'SCISSORS' && computerSelection === 'PAPER')
     ) {
     roundOneResult = 'You Win!';
     }
